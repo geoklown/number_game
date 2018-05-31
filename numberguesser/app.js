@@ -9,7 +9,7 @@ GAME FUNCTION:
 
 // Game Values
 
-let min = 5,
+let min = 1,
   max = 10,
   winningNum = 2,
   guessesLeft = 3;
@@ -34,9 +34,19 @@ guessBtn.addEventListener('click', function () {
   if (isNaN(guess) || guess < min || guess > max) {
     setMessage(`Please enter a number Between ${min} and ${max}`, 'red');
   }
+  //Check if Won
+  if (guess === winningNum) {
+    //Disable Input
+    guessInput.disabled = true;
+    guessInput.style.borderColor = 'green';
+    setMessage(`${winningNum} is correct! You Win!`, 'green');
+  } else {
+
+  }
 });
 
-///
+
+///Set Message
 function setMessage(msg, color) {
   message.style.color = color;
   message.textContent = msg;
